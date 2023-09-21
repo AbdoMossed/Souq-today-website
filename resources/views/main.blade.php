@@ -3,13 +3,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home | </title>
-    <link rel="stylesheet" href="{{mix('css/souq.css')}}">
+    <link rel="stylesheet" href="{{url('/css/souq.css')}}">
     @if ( Config::get('app.locale') == 'en')
-        <link rel="stylesheet" href="{{mix('css/app.css')}}">
+        <link rel="stylesheet" href="{{url('/css/app.css')}}">
     @endif
 
     @if ( Config::get('app.locale') == 'ar')
-        <link rel="stylesheet" href="{{mix('css/rtl.css')}}">
+        <link rel="stylesheet" href="{{url('/css/rtl.css')}}">
     @endif
 </head>
 <body>
@@ -20,7 +20,7 @@
         @yield('content')
         @include('footer')
     </div>
-    <script src="{{mix('js/app.js')}}"></script>
-    <script src="{{mix('js/souq.js')}}"></script>
+    <script src="{{url('/js/app.js')}}"></script>
+    <script src="{{url('/js/souq.js')}}"></script>
 </body>
 </html>

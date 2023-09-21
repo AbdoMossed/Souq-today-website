@@ -8,7 +8,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
     <div class="container">
         <div class="logo-page  col-md-3  d-flex align-items-center px-0">
-            <a class=" navbar-brand " href="{{url('/')}}"><img src="{{mix('images/wide-logo-en.png')}}" width="200" class="fs-6" alt=""></a>
+            <a class=" navbar-brand " href="{{url('/')}}"><img src="{{url('/images/wide-logo-en.png')}}" width="200" class="fs-6" alt=""></a>
             <span class="bgSimilar p-1 mx-1  text-white rounded d-inline-block ">Egypt</span>
         </div>
         <button class="navbar-toggler m-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

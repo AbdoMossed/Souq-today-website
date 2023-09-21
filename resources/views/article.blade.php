@@ -9,7 +9,7 @@
 
     <div class="col-lg-9 p-2 ">
         <div class="rounded">
-            <img src="{{mix('images/1-13-thumb.webp')}}"  class="w-100 rounded" alt="">
+            <img src="{{url('/images/1-13-thumb.webp')}}"  class="w-100 rounded" alt="">
         </div>
         <div class=" container py-4 ">
             <a class="d-flex flex-nowrap fw-bold  text-decoration-none fs-3 mt-2 mb-3  text-primary ">كم يدخل لمصر سنوياً بالدولار من قناة السويس؟</a>
@@ -61,13 +61,13 @@
             <div class=" position-sticky top-0 col-12   p-0 d-flex flex-column">
             
                 <div class="rounded">
-                    <img src="{{mix('images/1-13-thumb.webp')}}"  class="w-100 rounded" alt="">
+                    <img src="{{url('/images/1-13-thumb.webp')}}"  class="w-100 rounded" alt="">
                 </div>
 
                 <div class="px-0 mt-3   rounded  row ">
                     
                     <div class="col-4 rounded">
-                        <img src="{{mix('images/_127401161_gettyimages-1242710165-thumb.webp')}}" class="rounded " width="100%" alt="">
+                        <img src="{{url('/images/_127401161_gettyimages-1242710165-thumb.webp')}}" class="rounded " width="100%" alt="">
                     </div>
 
                     <div class="col-8 p-0  d-flex flex-column ">
