@@ -1,0 +1,10 @@
+$primary: #18293c;
+
+@import "~bootstrap/dist/css/bootstrap.rtl.min.css";
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+:root, [data-bs-theme=light] {
+  --bs-primary-rgb: 24, 41, 60;
+}
+
+// 108,117,125

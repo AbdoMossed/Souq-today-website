@@ -1,0 +1,25 @@
+tr:hover td ,tr:hover td a {
+    cursor: pointer;
+    background-color: rgb(45, 45, 85);
+    color: #fff !important;
+}
+
+
+@font-face {
+    font-family: dinnext;
+    src:url(/fonts/DINNextLTArabic-Medium-0ec06b2d.woff) format("woff");
+    font-weight:400;
+    font-style:normal
+}
+
+body{
+    font-family: dinnext,sans-serif !important;
+}
+
+.currencies-bar, .currencies-bar .type-currency{
+    height: 60px;
+}
+
+.currencies-bar,.bgSimilar{
+    background-color: #1d3147;
+}

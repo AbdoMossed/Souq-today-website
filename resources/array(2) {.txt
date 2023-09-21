@@ -1,0 +1,14 @@
+array(2) { 
+    ["en"]=> array(4) { 
+        ["name"]=> string(7) "English" 
+        ["script"]=> string(4) "Latn" 
+        ["native"]=> string(7) "English" 
+        ["regional"]=> string(5) "en_GB" 
+    } 
+    ["ar"]=> array(4) { 
+        ["name"]=> string(6) "Arabic" 
+        ["script"]=> string(4) "Arab" 
+        ["native"]=> string(14) "العربية" 
+        ["regional"]=> string(5) "ar_AE" 
+    } 
+}
