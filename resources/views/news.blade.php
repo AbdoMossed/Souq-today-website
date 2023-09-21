@@ -10,7 +10,7 @@
                 <a href="{{url('article')}}" class="text-decoration-none text-dark">
                     <div class=" px-0 shadow-lg  rounded h-100">
                         <div class="">
-                            <img src="{{mix('images/1-13-thumb.webp')}}"  class="rounded-top w-100" alt="">
+                            <img src="{{url('/images/1-13-thumb.webp')}}"  class="rounded-top w-100" alt="">
                         </div>
                         <div class="  p-4 ">
                             <h5 class="fw-bold">كم يدخل لمصر سنوياً بالدولار من قناة السويس؟</h5>
@@ -25,7 +25,7 @@
                 <a href="{{url('article')}}" class="text-decoration-none text-dark">
                     <div class=" px-0 shadow-lg rounded h-100">
                         <div class="">
-                            <img src="{{mix('images/_127401161_gettyimages-1242710165-thumb.webp')}}" class="rounded-top w-100" alt="">
+                            <img src="{{url('/images/_127401161_gettyimages-1242710165-thumb.webp')}}" class="rounded-top w-100" alt="">
                         </div>
                         <div class=" w-100 p-4 ">
                             <h5 class="fw-bold">من أين تحصل مصر على دولارات لسداد الديون؟</h5>
