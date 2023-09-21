@@ -11,11 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .js('resources/js/souq.js', 'public/js')
-    .sass('resources/scss/app.scss', 'public/css')
-    .sass('resources/scss/rtl.scss', 'public/css')
+mix.js(['resources/js/app.js', 'resources/js/souq.js'], 'public/js')
+    .sass(['resources/scss/app.scss', 'resources/scss/rtl.scss'], 'public/css')
     .css('resources/css/souq.css', 'public/css')
-    .copyDirectory('resources/fonts/dinnext', 'public/fonts/dinnext')
-    .copyDirectory('resources/images', 'public/images')
-    .sourceMaps();
+    .copyDirectory('resources/fonts', 'public/fonts')
+    .copyDirectory('resources/images', 'public/images');
