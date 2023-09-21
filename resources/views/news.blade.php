@@ -6,7 +6,7 @@
 
         <div class=" row  p-4 ">
 
-            <div class="col-lg-4 col-md-6 pe-1 mb-3">
+            <div class="col-lg-3 col-md-6 pe-1 mb-3">
                 <a href="{{url('article')}}" class="text-decoration-none text-dark">
                     <div class=" px-0 shadow-lg  rounded h-100">
                         <div class="">
@@ -21,7 +21,7 @@
                 </a>
             </div>
 
-            <div class="col-lg-4 col-md-6 pe-1 mb-3">
+            <div class="col-lg-3 col-md-6 pe-1 mb-3">
                 <a href="{{url('article')}}" class="text-decoration-none text-dark">
                     <div class=" px-0 shadow-lg rounded h-100">
                         <div class="">
