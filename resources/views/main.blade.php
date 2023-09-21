@@ -13,8 +13,6 @@
     @endif
 </head>
 <body>
-    <a href="{{ LaravelLocalization::getLocalizedURL('ar') }}" ></a>
-    <a href=""></a>
     <div class="main-souq">
         @include('header')
         @yield('content')
