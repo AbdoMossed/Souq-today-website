@@ -7,7 +7,7 @@ tr:hover td ,tr:hover td a {
 
 @font-face {
     font-family: dinnext;
-    src:url(../fonts/dinnext/DINNextLTArabic-Medium-0ec06b2d.woff) format("woff");
+    src:url(/fonts/dinnext/DINNextLTArabic-Medium-0ec06b2d.woff) format("woff");
     font-weight:400;
     font-style:normal
 }
