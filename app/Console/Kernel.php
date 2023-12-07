@@ -16,6 +16,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('gold:refresh')->everyFifteenMinutes()->withoutOverlapping();
+        $schedule->command('currencies:refresh')->everyFifteenMinutes()->withoutOverlapping();
     }
 
     /**
