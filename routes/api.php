@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\GoldController;
+use App\Http\Controllers\ArticleController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/currency/historical/{id}',[CurrencyController::class,'priceCurrency']);
+Route::get('/gold/historical/{id}',[GoldController::class,'priceGold']);
+Route::post('/articles/{id}/comment',[ArticleController::class,'comment']);

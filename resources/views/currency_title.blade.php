@@ -1,8 +1,48 @@
-    <div class="title-currency ">
-        <div class="d-flex">
-            <p class="fw-bold fs-3 m-0 py-3 text-primary"> <span class=""><img src="{{url('/images/united-states.png')}}" width="25" alt=""></span> <span class="ms-1">{{__('United States Dollar/Egyption Pound')}}</span></p>
-        </div>
-        <small class="text-muted">{{__('The Price Of United States Dollar Today In The Black Market In Egypt')}}</small>                        
-        <p class="font-sizeCss Price-api-selc-cur sell m-0 fw-bold  ">40.02</p>
-        <small class="my-2  d-inline-block text-muted">{{__('Buying Price')}} 40.02 <small class="compare-yasterday text-success fs-6 ms-2 ">{{__('Compared To The Last Price Yesterday')}}</small></small>
+@php 
+    $name = $name ?? '';
+    $prices = $prices ?? [];
+    $buyPrice = $prices[0]->buy_price;
+    $sellPrice = $prices[0]->sell_price;
+    $buyPriceYasterday = $prices->last()->buy_price;
+    $priceDiff =$buyPrice - $buyPriceYasterday;
+@endphp
+
+<div class="title-currency ">
+<div class="d-flex">                                                                                                                                                         
+            <p class="fw-bold fs-3 m-0 py-3 text-primary">
+                <span class="">
+                    <img src="{{url('/storage/'.$icon)}}" width="25" alt="">
+                </span>
+                <span class="ms-1">
+                    {{$name}} / {{__('Egyption Pound')}}
+                </span>
+            </p>
+        </div>                               
+        <small class="text-muted">
+
+        @if($type == 'Currency' )
+                {{__('The_Price_Of')}} {{$name}} {{__('Today_In_The_Black_Market_In_Egypt')}}
+            @else
+                {{__('The_Price_Of')}} {{$name}} {{__('Today_In_Egypt')}}
+        @endif
+        </small>                        
+        <p class="font-sizeCss Price-api-selc-cur sell m-0 fw-bold ">
+            {{number_format($sellPrice, 2,)}}
+        </p>
+        <small class="my-2  d-inline-block text-muted">
+            {{__('Buying_Price')}} {{number_format($buyPrice, 2,)}}
+                        @if(( $priceDiff != 0 ))
+                            <small class="compare-yasterday fs-6 ms-2 {{  ($priceDiff < 0 ) ? 'text-danger' : 'text-success';}}" >
+                                    <i class="fa-solid {{ ($priceDiff < 0 ) ? 'fa-chevron-down' : 'fa-chevron-up'; }}"></i>
+                                    {{ (($priceDiff) > 0 ) ? '+' : '-'; }}
+                                    ({{  number_format(abs($priceDiff), 2,)  }})
+                                    {{ __('Compared To The Last Price Yesterday') }}
+                            </small>
+                        @else
+                            <small class="compare-yasterday fs-6 ms-2">
+                                    <i class="fa-solid fa-equals"></i>
+                                    {{__('Compared To The Last Price Yesterday')}}
+                            </small>
+                        @endif
+        </small>
     </div>

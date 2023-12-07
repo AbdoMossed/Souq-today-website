@@ -10,7 +10,9 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "mcamara/laravel-localization": "^1.8"
+        "laraveldaily/laravel-charts": "^0.2.3",
+        "mcamara/laravel-localization": "^1.8",
+        "tcg/voyager": "dev-relationship-translation-fix"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
@@ -62,5 +64,11 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/a-ahmed116/voyager"
+        }
+    ]
 }

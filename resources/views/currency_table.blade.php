@@ -1,40 +1,61 @@
+
+@php 
+    $name = $name ?? '';
+    $sellPrice = $sellPrice ?? '';
+    $buyPrice = $buyPrice ?? '';
+@endphp
 <table class="w-100 table table-bordered">
                             <thead>
 
                                 <tr>
-                                    <th class="p-3 text-muted" scope="col">United States Dollar</th>
-                                    <th class="p-3 text-muted" scope="col">Egyption Pound</th>
+                                    <th class="p-3 text-muted" scope="col">{{$name}}</th>
+                                    <th class="p-3 text-muted" scope="col">{{__('Egyption Pound')}}</th>
                                 </tr>
 
                             </thead>
                             <tbody>
+
+                                    
                                 <tr>
-                                    <td class="sell-api text-muted fw-bold p-3">1 United States Dollar</td>
-                                    <td class="buy-api  text-muted fw-bold p-3 " >40.1 Egyption Pound</td>
+                                    <td class="sell-api text-muted fw-bold p-3">1 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >  {{number_format($buyPrice * 1, 2)}} {{__('Egyption Pound')}}</td>
                                 </tr>
-                                <tr class="hover">
-                                    <td class="sell-api text-muted fw-bold p-3">1 United States Dollar</td>
-                                    <td class="buy-api  text-muted fw-bold p-3 " >40.1 Egyption Pound</td>
-                                </tr>
-                                <tr>
-                                    <td class="sell-api text-muted fw-bold p-3">1 United States Dollar</td>
-                                    <td class="buy-api  text-muted fw-bold p-3 " >40.1 Egyption Pound</td>
-                                </tr>
-                                <tr>
-                                    <td class="sell-api text-muted fw-bold p-3">1 United States Dollar</td>
-                                    <td class="buy-api  text-muted fw-bold p-3 " >40.1 Egyption Pound</td>
+
+                                <tr >
+                                    <td class="sell-api text-muted fw-bold p-3">5 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >{{number_format($buyPrice * 5, 2)}} {{__('Egyption Pound')}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="sell-api text-muted fw-bold p-3">1 United States Dollar</td>
-                                    <td class="buy-api  text-muted fw-bold p-3 " >40.1 Egyption Pound</td>
+                                    <td class="sell-api text-muted fw-bold p-3">10 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >{{number_format($buyPrice * 10, 2)}} {{__('Egyption Pound')}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="sell-api text-muted fw-bold p-3">1 United States Dollar</td>
-                                    <td class="buy-api  text-muted fw-bold p-3 " >40.1 Egyption Pound</td>
+                                    <td class="sell-api text-muted fw-bold p-3">25 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >{{number_format($buyPrice * 25, 2)}} {{__('Egyption Pound')}}</td>
                                 </tr>
                                 <tr>
-                                    <td class="sell-api text-muted fw-bold p-3">1 United States Dollar</td>
-                                    <td class="buy-api  text-muted fw-bold p-3 " >40.1 Egyption Pound</td>
+                                    <td class="sell-api text-muted fw-bold p-3">50 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >{{number_format($buyPrice * 50, 2)}} {{__('Egyption Pound')}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="sell-api text-muted fw-bold p-3">100 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >{{number_format($buyPrice * 100, 2)}} {{__('Egyption Pound')}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="sell-api text-muted fw-bold p-3">500 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >{{number_format($buyPrice * 500, 2)}} {{__('Egyption Pound')}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="sell-api text-muted fw-bold p-3">1000 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >{{number_format($buyPrice * 1000, 2)}} {{__('Egyption Pound')}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="sell-api text-muted fw-bold p-3">5000 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >{{number_format($buyPrice * 5000, 2)}} {{__('Egyption Pound')}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="sell-api text-muted fw-bold p-3">10000 {{$name}}</td>
+                                    <td class="buy-api  text-muted fw-bold p-3 " >{{number_format($buyPrice * 10000, 2)}} {{__('Egyption Pound')}}</td>
                                 </tr>
                             </tbody>
                         </table>

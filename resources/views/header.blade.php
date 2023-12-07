@@ -25,15 +25,17 @@
                 <li class="nav-item">
                     <a href="{{url('news')}}" class="text-decoration-none text-light fs-6 nav-link">{{__('News')}}</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{url('currency')}}" class="text-decoration-none text-light fs-6 nav-link">{{__('United States Dollar')}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('currency')}}" class="text-decoration-none text-light fs-6 nav-link">{{__('Euro')}}</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{url('currency')}}" class="text-decoration-none text-light fs-6 nav-link">{{__('Saudi Riyal')}}</a>
-                </li>
+
+                @php
+                 $navs = $currencies->where('nav','1');
+                @endphp
+                @foreach ($navs as $currencyNav)
+                    <li class="nav-item">
+                        <a href="{{url('currency/'.$currencyNav->id)}}" class="text-decoration-none text-light fs-6 nav-link">{{$currencyNav->name}}</a>
+                    </li>
+                @endforeach
+
+
             </ul>
             <a href="{{$oppositeURL}}" class="navbar-text text-light text-decoration-none">
                 {{$oppositeLangName}}
@@ -44,66 +46,30 @@
 <div class="currencies-bar  text-white overflow-y-hidden">
     <div class="container">
         <div class="row">
+             @php
+             $populars = $currencies->where('popular','1');
+             $populargold= $gold->where('popular','1');
 
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
+             @endphp
+            @foreach ($populars as $popular)
+            
+            <a href="{{url('currency/'.$popular->id)}}" class="text-decoration-none col-auto">
                 <div class="type-currency d-flex flex-column justify-content-center ">
-                    <small class=" text-light m-0 mb-1 lh-1">United States Dollar</small>
-                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">39.93</span>
+                    <small class=" text-light m-0 mb-1 lh-1">{{$popular->name}}</small>
+                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">{{$popular->prices[0]->sell_price}}</span>
                 </div>
             </a>
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
-                <div class="type-currency d-flex flex-column justify-content-center  col-auto">
-                    <small class=" text-light m-0 mb-1 lh-1">Euro</small>
-                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">42.90</span>
-                </div>
-            </a>    
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
-                <div class="type-currency d-flex flex-column justify-content-center col-auto">
-                    <small class=" text-light m-0 mb-1 lh-1">21 Karat Gold</small>
-                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">2195</span>
+            @endforeach
+            @foreach ($populargold as $popular)
+            
+            <a href="{{url('gold/'.$popular->id)}}" class="text-decoration-none col-auto">
+                <div class="type-currency d-flex flex-column justify-content-center ">
+                    <small class=" text-light m-0 mb-1 lh-1">{{$popular->name}}</small>
+                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">{{$popular->prices[0]->sell_price}}</span>
                 </div>
             </a>
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
-                <div class="type-currency d-flex flex-column justify-content-center col-auto">
-                    <small class=" text-light m-0 mb-1 lh-1">Saudi Riyal</small>
-                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">10.65</span>
-                </div>
-            </a>
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
-                <div class="type-currency d-flex flex-column justify-content-center  col-auto">
-                    <small class=" text-light m-0 mb-1 lh-1">Emirat Dirham</small>
-                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">10.87</span>
-                </div>
-            </a>
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
-                <div class="type-currency d-flex flex-column justify-content-center  col-auto">
-                    <small class=" text-light m-0 mb-1 lh-1">Qatar Riyal</small>
-                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">10.97</span>
-                </div>
-            </a>
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
-                <div class="type-currency d-flex flex-column justify-content-center  col-auto">
-                    <small class=" text-light m-0 mb-1 lh-1">Kuwaiti Dinar</small>
-                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">129.45</span>
-                </div>
-            </a>
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
-            <div class="type-currency d-flex flex-column justify-content-center col-auto ">
-                <small class=" text-light m-0 mb-1 lh-1">Jordanian dinar</small>
-                <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">56.35</span>
-            </div>
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
-                <div class="type-currency d-flex flex-column justify-content-center  col-auto">
-                    <small class=" text-light m-0 mb-1 lh-1">Omani Riyal</small>
-                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">103.59</span>
-                </div>
-            </a>
-            <a href="{{url('currency')}}" class="text-decoration-none col-auto">
-                <div class="type-currency d-flex flex-column justify-content-center  col-auto">
-                    <small class=" text-light m-0 mb-1 lh-1">Bahraini Dinar</small>
-                    <span class="api-currency-number fw-bold fs-5 lh-1 text-light ">105.78</span>
-                </div>
-            </a>
+            @endforeach
+   
         </div>
     </div>
     
