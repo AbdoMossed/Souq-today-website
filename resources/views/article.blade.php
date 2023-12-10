@@ -14,7 +14,7 @@
         </div>
         <div class=" container py-4 ">
             <a class="d-flex flex-nowrap fw-bold  text-decoration-none fs-3 mt-2 mb-3  text-primary ">{{$article->title}}</a>
-            <span class="text-muted"><i class="fa-regular fa-clock"></i> {{$article->created_at->diffForHumans()}}</span>
+            <span class="text-muted"><i class="fa-regular fa-clock"></i> {{$article->created_at->diffForHumans()}} | </span>
             <span class="text-muted"> {{$count}} {{__('Views')}}</span>
         </div>
         {!!$article->long_description!!}

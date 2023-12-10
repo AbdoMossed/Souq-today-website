@@ -19,6 +19,6 @@ use App\Http\Controllers\ArticleController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/currency/historical/{id}',[CurrencyController::class,'priceCurrency']);
-Route::get('/gold/historical/{id}',[GoldController::class,'priceGold']);
+Route::get('/Currency/historical/{id}',[CurrencyController::class,'priceCurrency']);
+Route::get('/Gold/historical/{id}',[GoldController::class,'priceGold']);
 Route::post('/articles/{id}/comment',[ArticleController::class,'comment']);
