@@ -27,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (config('app.env') !== 'production') {
+            \URL::forceScheme('https');
+        }
+
         $lang = Request::segment(1) ?: config('app.locale');
 
         $currenciesWithPrice = Currency::with('prices','livePrice')->whereHas('prices')->where('code','!=','egp')->orderBy('sort')->get()->translate($lang);
