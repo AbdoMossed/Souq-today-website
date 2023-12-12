@@ -110,8 +110,9 @@ $filteredItem = $calcItems->where('id',$id)->first();
                     </script>
                 </div>
                 <div class="part-two-table w-100">
-                    <p class="fw-bold text-primary fs-5"> {{ ($type == "Gold") ? __('Gold') : ''; }} {{$filteredItem->name}} {{__('To')}} {{__('Egyption Pound')}} </p>
+                    <p class="fw-bold text-primary fs-5"> {{ ($type == "Gold") && is_numeric($calcItems->where('id',$id)->first()->karat) ? __('Gold') : ''; }} {{$filteredItem->name}} {{__('To')}} {{__('Egyption Pound')}} </p>
                     @include('currency_table', [
+                        'items' => $calcItems,
                         'name' => $filteredItem->name,
                         'buyPrice' => $filteredItem->prices[0]->buy_price,
                     ])

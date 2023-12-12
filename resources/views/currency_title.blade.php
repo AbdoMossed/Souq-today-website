@@ -38,11 +38,8 @@
                                     ({{  number_format(abs($priceDiff), 2,)  }})
                                     {{ __('Compared To The Last Price Yesterday') }}
                             </small>
-                        @else
-                            <small class="compare-yasterday fs-6 ms-2">
-                                    <i class="fa-solid fa-equals"></i>
-                                    {{__('Compared To The Last Price Yesterday')}}
-                            </small>
+             
+
                         @endif
         </small>
     </div>
