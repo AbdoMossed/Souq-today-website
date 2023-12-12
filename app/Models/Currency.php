@@ -14,7 +14,7 @@ class Currency extends Model
     protected $translatable = ['name'];
 
     public function prices() {
-        return $this->hasMany(BlackMarketPrices::class)->orderBy('date', 'desc')->orderBy('hour', 'desc')->where('date','>', now()->subDays(2)->endOfDay());
+        return $this->hasMany(BlackMarketPrices::class)->orderBy('date', 'desc')->orderBy('hour', 'desc')->where('date','>=', now()->subDays(2)->startOfDay());
     }
     public function livePrice() {
         return $this->hasOne(live_price::class)->orderBy('date', 'desc')->orderBy('hour', 'desc');

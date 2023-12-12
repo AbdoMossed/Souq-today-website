@@ -14,6 +14,6 @@ class Gold extends Model
     protected $translatable = ['name'];
 
     public function prices() {
-        return $this->hasMany(GoldPrice::class)->orderBy('date', 'desc')->orderBy('hour', 'desc')->where('date','>', now()->subDays(2)->endOfDay());
+        return $this->hasMany(GoldPrice::class)->orderBy('date', 'desc')->orderBy('hour', 'desc')->where('date','>=', now()->subDays(2)->startOfDay());
     }
 }
