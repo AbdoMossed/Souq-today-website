@@ -2,16 +2,12 @@
 @php
 $titleCurrency = ($type  == "Currency") ?$currencies->where('id',$id)->first()->name : $gold->where('id',$id)->first()->name; 
 @endphp
-
 @extends('main',['title_Page'=>  $titleCurrency .' | '. __('Souq_Today')  ])
-
 
 @section('content')
 @php
+
 $calcItems = $type == "Currency" ? $currencies : $gold;
-
-
-
 $filteredItem = $calcItems->where('id',$id)->first();
 
 @endphp
@@ -114,24 +110,21 @@ $filteredItem = $calcItems->where('id',$id)->first();
                     </script>
                 </div>
                 <div class="part-two-table w-100">
-                    <p class="fw-bold text-primary fs-5"> {{$filteredItem->name}} {{__('To')}} {{__('Egyption Pound')}} </p>
+                    <p class="fw-bold text-primary fs-5"> {{ ($type == "Gold") ? __('Gold') : ''; }} {{$filteredItem->name}} {{__('To')}} {{__('Egyption Pound')}} </p>
                     @include('currency_table', [
                         'name' => $filteredItem->name,
                         'buyPrice' => $filteredItem->prices[0]->buy_price,
                     ])
-
                 </div>
             </div>
             <!-- End child left -->
             <!-- start child right -->
-
             <div class="col-lg-4  input-calc bg-primary p-3 rounded  h-100 container ">
                 @include('currency_calculator', [
                     'items' => $calcItems,
                     'id' => $filteredItem->id ,
                 ])
             </div>
-
             <!-- End child right -->
             
         </div>

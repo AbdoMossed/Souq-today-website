@@ -1,2 +1,2 @@
 
-{{$currencies->where('id',2)->first()->name}}
+{{$currencies->where('id',2)}}
