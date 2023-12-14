@@ -16,6 +16,7 @@ class GoldPrice extends Model
         'international_price',
         'date',
         'hour',
+        'home_currency_id',
     ];
     
 }

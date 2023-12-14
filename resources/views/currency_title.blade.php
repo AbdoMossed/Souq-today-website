@@ -8,7 +8,7 @@
 @endphp
 
 <div class="title-currency ">
-<div class="d-flex">                                                                                                                                                         
+        <div class="d-flex">                                                                                                                                                         
             <p class="fw-bold fs-3 m-0 py-3 text-primary">
                 <span class="">
                     <img src="{{url('/storage/'.$icon)}}" width="25" alt="">
@@ -17,6 +17,11 @@
                     {{$name}} / {{__('Egyption Pound')}}
                 </span>
             </p>
+            <div class="d-flex align-items-center  ms-2">
+                <div class="spinner-grow text-secondary spinner-grow-sm mt-2" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
         </div>                               
         <small class="text-muted">
 

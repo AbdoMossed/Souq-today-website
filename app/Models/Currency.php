@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\BlackMarketPrices;
 use App\Models\live_price;
+use App\Models\GoldPrice;
+use App\Models\Country;
 use TCG\Voyager\Traits\Translatable;
 class Currency extends Model
 {
@@ -18,5 +20,11 @@ class Currency extends Model
     }
     public function livePrice() {
         return $this->hasOne(live_price::class)->orderBy('date', 'desc')->orderBy('hour', 'desc');
+    }
+    public function country() {
+        return $this->hasOne(Country::class);
+    }
+    public function goldCurrency() {
+        return $this->hasOne(GoldPrice::class);
     }
 }

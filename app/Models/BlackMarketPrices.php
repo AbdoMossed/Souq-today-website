@@ -11,6 +11,7 @@ class BlackMarketPrices extends Model
     protected $fillable = [
         'currency_id',
         'buy_price',
+        'home_currency_id',
         'sell_price',
         'date',
         'hour',

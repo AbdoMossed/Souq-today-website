@@ -5,14 +5,21 @@
 @endphp
 
 <div class="container px-1">
-    <p class="text-light px-2 fw-bold fs-5 container">
-        
-        @if($type == 'Currency' )
-            {{__('Currency_Exchange')}}
-        @else
-            {{__('Grams_Calculator')}}
-        @endif
-    </p>
+    <div class="d-flex justify-content-between w-100">
+        <p class="text-light px-2 fw-bold fs-5  my-0">
+            
+            @if($type == 'Currency' )
+                {{__('Currency_Exchange')}}
+            @else
+                {{__('Grams_Calculator')}}
+            @endif
+        </p>
+        <div class="d-flex align-items-center">
+                    <div class="spinner-grow text-light spinner-grow-sm mt-2" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+        </div>
+    </div>
     <div class="d-flex flex-column container">
         <label for="" class="text-light py-2"> {{__('Enter The Amount')}} </label>
         <input class="inputNumber bg-primary text-light border border-success p-2 rounded"  min="1" value="1" type="number">

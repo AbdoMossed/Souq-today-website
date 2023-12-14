@@ -21,9 +21,17 @@ body{
 }
 
 .currencies-bar,.bgSimilar{
-    background-color: #1d3147;
+    background-color: #273c53;
 }
 p.font-sizeCss{
     font-size: 90px ;
     
 }
+.currencies-bar a.hover-bar:hover  {
+    background-color: #3a4552;
+}
+.currencies-bar a.hover-bar div small{
+    font-size: 11px;
+    color: #eee;
+}
+

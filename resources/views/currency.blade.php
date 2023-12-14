@@ -15,7 +15,7 @@ $filteredItem = $calcItems->where('id',$id)->first();
         <!-- {{ $calcItems->where('id',$id)->first()->price}} -->
     <div class="father-div row d-flex mt-5 px-3">
             <!-- start child left -->
-            <div class="child-left col-lg-8 p-0 pe-3 ">
+            <div class="child-left col-lg-9 p-0 pe-3 ">
                 <div class="part-one ">
                     @include('currency_title', [
                         'icon' => $filteredItem->icon,
@@ -120,7 +120,7 @@ $filteredItem = $calcItems->where('id',$id)->first();
             </div>
             <!-- End child left -->
             <!-- start child right -->
-            <div class="col-lg-4  input-calc bg-primary p-3 rounded  h-100 container ">
+            <div class="col-lg-3  input-calc bg-primary p-3 rounded  h-100 container ">
                 @include('currency_calculator', [
                     'items' => $calcItems,
                     'id' => $filteredItem->id ,
