@@ -90,7 +90,7 @@ Route::group(
 Route::get('index',[CurrencyController::class,'index']);
 // Route::get('index',[ArticleController::class,'index']);
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'app-portal'], function () {
     Voyager::routes();
 });
 
