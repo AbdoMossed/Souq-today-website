@@ -4,6 +4,7 @@
     "Syria":"Syria",
     "Currencies":"Currencies",
     "Currency":"Currency",
+    "Karat":"Karat",
     "News":"News",
     "Gold":"Gold",
     "Market_USD":"Market USD",
@@ -14,7 +15,9 @@
     "Sagha_Difference":"Sagha Difference",
     "Buying_Price":"Buying Price",
     "Compared To The Last Price Yesterday":"Compared To The Last Price Yesterday",
-    "Pound":"Pound",
+    "PoundEg":"Pound",
+    "PoundSy":"Pound",
+    "Syrian_Pound":"Syrian Pound",
     "Sell":"Sell",
     "Buy":"Buy",
     "Gram":"Gram",
@@ -44,8 +47,8 @@
     "Comments":"Comments",
     "To":"To",
     "The_Price_Of":"The Price Of",
-    "Today_In_The_Black_Market_In_Egypt":"Today In The Black Market In Egypt",
-    "Today_In_Egypt":"Today In Egypt",
+    "Today_In_The_Black_Market_In":"Today In The Black Market In",
+    "Today_In":"Today In ",
     "Article":"Article"
 
 

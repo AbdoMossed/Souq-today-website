@@ -1,5 +1,6 @@
 @extends('main',['title_Page'=>  __('Gold').' | '. __('Souq_Today')  ])
 
+
 @section('content')
 
     <div class="container ">

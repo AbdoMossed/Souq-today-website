@@ -57,8 +57,13 @@ class AppServiceProvider extends ServiceProvider
         })->orderBy('sort')->get()->translate($lang);
 
 
+        $parsedUrl = parse_url(request()->url())['host'];
+        $splittedHost = explode('.', $parsedUrl);
+        $code = $splittedHost[0];
+
         view()->share('currencies', $currenciesWithPrice );
         view()->share('gold', $gold );
         view()->share('countries', $countries );
+        view()->share('code', $code  );
     }
 }

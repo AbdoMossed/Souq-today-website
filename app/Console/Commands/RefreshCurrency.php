@@ -57,6 +57,7 @@ class RefreshCurrency extends Command
 
         $syria = json_decode($syria);
         foreach ($syria->country_prices as $country) {
+            if ($country != NULL){
             
                 $id_country = Currency::where('code','syp')->value('id');
                 BlackMarketPrices::updateOrCreate(
@@ -67,14 +68,16 @@ class RefreshCurrency extends Command
                         'sell_price' => $country->sell_price, 
                     ]
                 );
-
+            }
         };
 
         $lebanon = Http::withHeaders([ 'content-currency' => 10 ])->get('https://fluxtech.app/syrian-currencies/api/currencies/prices');
 
         $lebanon = json_decode($lebanon);
+        
         foreach ($lebanon->country_prices as $country) {
-            
+            if ($country != NULL){
+
                 $id_country = Currency::where('code','lbp')->value('id');
 
                 BlackMarketPrices::updateOrCreate(
@@ -85,7 +88,7 @@ class RefreshCurrency extends Command
                         'sell_price' => $country->sell_price, 
                     ]
                 );
-
+            }
         }
         return Command::SUCCESS;
     }

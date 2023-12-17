@@ -23,19 +23,22 @@ class RefreshGold extends Command
         $gold_Egp = Http::get('https://fluxtech.app/usd_and_gold/api/gold');
         $gold_Egp = json_decode($gold_Egp);
         foreach ($gold_Egp as $goldItem) {
-            $karat = $goldItem->karat;
-            $id = Gold::where('karat',$karat)->value('id');
-            $countryId = Currency::where('code','egp')->value('id');
+            if ($goldItem->price != NULL){
 
-            GoldPrice::updateOrCreate(
-                ['gold_id' => $id, 'date' => now()->format('Y-m-d'), 'hour' => now()->format('H')],
-                [
-                    'buy_price'  => $goldItem->price->buy_price, 
-                    'sell_price' => $goldItem->price->sell_price,
-                    'international_price' => $goldItem->price->international_price,
-                    'home_currency_id'=> $countryId,
-                ]
-            );
+                $karat = $goldItem->karat;
+                $id = Gold::where('karat',$karat)->value('id');
+                $countryId = Currency::where('code','egp')->value('id');
+
+                GoldPrice::updateOrCreate(
+                    ['gold_id' => $id, 'date' => now()->format('Y-m-d'), 'hour' => now()->format('H')],
+                    [
+                        'buy_price'  => $goldItem->price->buy_price, 
+                        'sell_price' => $goldItem->price->sell_price,
+                        'international_price' => $goldItem->price->international_price,
+                        'home_currency_id'=> $countryId,
+                    ]
+                );
+            }
         };
 
 

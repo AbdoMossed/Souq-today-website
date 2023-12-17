@@ -16,12 +16,13 @@
     "The Price Of United States Dollar Today In The Black Market In Egypt":"سعر الدولار الأمريكي اليوم في السوق السوداء في مصر",
     "Compared To The Last Price Yesterday":"مقارنة بآخر سعر امس",
     "United States Dollar/Egyption Pound":"دولار أمريكي / جنيه مصري",
-    "Pound":"جنيه",
+    "PoundSy":"ليره",
+    "PoundEg":"جنيه",
+    "Syrian_Pound":"الليرة السورية",
     "Sell":"بيع",
     "Karat":"العيار",
     "Buy":"شراء",
     "Gram":"جرام",
-
     "Grams_Calculator":"حاسبة الجرامات",
     "Enter_The_Number_Of_Grams":"أدخل عدد الجرامات",
     "Choose_Type":"اختر النوع",
@@ -49,8 +50,8 @@
     "Comments":"التعليقات",
     "To":"إلى",
     "The_Price_Of":"سعر ",
-    "Today_In_The_Black_Market_In_Egypt":"اليوم في السوق السوداء في مصر",
-    "Today_In_Egypt":"الآن فى مصر",
+    "Today_In_The_Black_Market_In":"اليوم في السوق السوداء في ",
+    "Today_In":"الآن فى ",
     "Article":"المقال"
 
 

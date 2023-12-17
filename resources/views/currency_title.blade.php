@@ -14,7 +14,8 @@
                     <img src="{{url('/storage/'.$icon)}}" width="25" alt="">
                 </span>
                 <span class="ms-1">
-                    {{$name}} / {{__('Egyption Pound')}}
+                    {{$name}} / 
+                    {{$countries->where('code',$code)->first()->name}}
                 </span>
             </p>
             <div class="d-flex align-items-center  ms-2">
@@ -26,13 +27,21 @@
         <small class="text-muted">
 
         @if($type == 'Currency' )
-                {{__('The_Price_Of')}} {{$name}} {{__('Today_In_The_Black_Market_In_Egypt')}}
-            @else
-                {{__('The_Price_Of')}} {{$name}} {{__('Today_In_Egypt')}}
+                @if ($code == 'egp')
+                    {{__('The_Price_Of')}} {{$name}} {{__('Today_In_The_Black_Market_In')}} 
+                    {{$countries->where('code',$code)->first()->country->name}}
+                    @else
+                    {{__('The_Price_Of')}} {{$name}} {{__('Today_In')}}
+                    {{$countries->where('code',$code)->first()->country->name}}
+                @endif
+        @else
+                {{__('The_Price_Of')}} {{$name}} {{__('Today_In')}}
+                {{$countries->where('code',$code)->first()->country->name}}
+
         @endif
         </small>                        
         <p class="font-sizeCss Price-api-selc-cur sell m-0 fw-bold ">
-            {{number_format($sellPrice, 2,)}}
+            {{number_format($sellPrice, 2)}}
         </p>
         <small class="my-2  d-inline-block text-muted">
             {{__('Buying_Price')}} {{number_format($buyPrice, 2,)}}

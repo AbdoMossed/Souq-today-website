@@ -11,6 +11,14 @@
     $international_price = $gold->where('karat',24)->first()->prices[0]->international_price; 
     $Sagha_USD = $gold_karat24 / $international_price; 
     $sagha_Diff = abs($Sagha_USD - $bank_USD); 
+
+
+    $appURL = config('app.url');
+    $splittedUrl = parse_url($appURL);
+    $scheme = $splittedUrl['scheme'];
+    $host = $splittedUrl['host'];
+    $port = $splittedUrl['port'];
+
 @endphp
 @section('content')
 
@@ -27,7 +35,8 @@
                         'sellPrice' => $currency->prices[0]->sell_price,
                         'buyPrice' => $currency->prices[0]->buy_price,
                         'prices' => $prices,
-                        'type' => 'currency',
+                        'type' => 'Currency',
+                        'code' => $code,
                         
                     ])
                     <hr>
@@ -35,28 +44,28 @@
                         <div class="left-uses d-flex justify-content-between   align-items-center">
                             <div class="row gx-0 text-muted">
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-primary border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2 d-inline-block">{{__('Market_USD')}}</small> <span class="black-market-api pe-2 text-primary fw-bold">{{ number_format($market_USD, 2,)}}</span> <small class="m-0 fs-6">{{__('Pound')}}</small>
+                                    <small class="colo-eee pe-2 d-inline-block">{{__('Market_USD')}}</small> <span class="black-market-api pe-2 text-primary fw-bold">{{ number_format($market_USD, 2,)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-primary border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2">{{__('Bank_USD')}}</small> <span class="bank-api pe-2 text-primary fw-bold">{{ number_format($bank_USD, 2,)}}</span> <small class="m-0 fs-6">{{__('Pound')}}</small>
+                                    <small class="colo-eee pe-2">{{__('Bank_USD')}}</small> <span class="bank-api pe-2 text-primary fw-bold">{{ number_format($bank_USD, 2,)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-warning  border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2">{{__('Sagha_USD')}}</small> <span class="sagha-api pe-2 text-warning fw-bold">{{number_format($Sagha_USD,2)}}</span> <small class="m-0 fs-6">{{__('Pound')}}</small>
+                                    <small class="colo-eee pe-2">{{__('Sagha_USD')}}</small> <span class="sagha-api pe-2 text-warning fw-bold">{{number_format($Sagha_USD,2)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-warning  border-5 d-inline-block "> 
-                                    <small class="colo-eee pe-2">{{__('Gold_21_Karat')}}</small> <span class="gold21-api pe-2 text-warning fw-bold fw-bold">{{number_format($gold_karat,0)}}</span> <small class="m-0 fs-6">{{__('Pound')}}</small>
+                                    <small class="colo-eee pe-2">{{__('Gold_21_Karat')}}</small> <span class="gold21-api pe-2 text-warning fw-bold fw-bold">{{number_format($gold_karat,0)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-info  border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2">{{__('Market_Difference')}}</small> <span class="Market-difference-api pe-2 fw-bold text-info">{{  number_format( $market_USD - $bank_USD ,2) }}</span> <small class="m-0 fs-6">{{__('Pound')}}</small>
+                                    <small class="colo-eee pe-2">{{__('Market_Difference')}}</small> <span class="Market-difference-api pe-2 fw-bold text-info">{{  number_format( $market_USD - $bank_USD ,2) }}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-info  border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2">{{__('Sagha_Difference')}}</small> <span class="sagha-difference-api pe-2 fw-bold text-info">{{number_format($sagha_Diff,2)}}</span>  <small class="m-0 fs-6">{{__('Pound')}}</small>
+                                    <small class="colo-eee pe-2">{{__('Sagha_Difference')}}</small> <span class="sagha-difference-api pe-2 fw-bold text-info">{{number_format($sagha_Diff,2)}}</span>  <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
                                 
                             </div>
@@ -67,6 +76,9 @@
                     @include('currencies_table',[
                         'items'=> $gold,
                         'slug' => 'gold',
+                        'code' => $code,
+                        'type' => 'Gold',
+
                     ])
                 </div>
             </div>
@@ -76,6 +88,9 @@
                 @include('currencies_table',[
                     'items'=> $currencies,
                     'slug' => 'currency',
+                    'code' => $code,
+                    'type' => 'Currency',
+
                 ])
             </div>
             <!-- End child right -->
