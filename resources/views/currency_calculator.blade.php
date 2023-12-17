@@ -15,9 +15,9 @@
             @endif
         </p>
         <div class="d-flex align-items-center">
-                    <div class="spinner-grow text-light spinner-grow-sm mt-2" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                    </div>
+            <div class="spinner-grow text-light spinner-grow-sm mt-2" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
     </div>
     <div class="d-flex flex-column container">
@@ -29,13 +29,13 @@
         <select name="" id="" class="currencey-item bg-primary text-light border border-success p-2 rounded cursor-pointer">
            
         @foreach ($items as $item)
-                    <option  data-price="{{$item->prices[0]->sell_price}}" {{ ($item->id == $id) ? 'selected' : ''; }}>
+                    <option  data-price="{{$item->prices[0]->buy_price}}" {{ ($item->id == $id) ? 'selected' : ''; }}>
                         {{$item->name}}
                     </option>
             @endforeach
         </select>
     </div>
-    <p class="currencyValue fs-1 p-3  fw-bold text-light text-center m-0 ">  {{number_format($price, 2,)}}</p>
+    <p class="currencyValue fs-1 p-3  fw-bold text-light text-center m-0 ">  {{number_format($price, 2)}}</p>
 </div>
 
 <script>

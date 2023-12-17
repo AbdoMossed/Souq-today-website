@@ -41,10 +41,10 @@
         @endif
         </small>                        
         <p class="font-sizeCss Price-api-selc-cur sell m-0 fw-bold ">
-            {{number_format($sellPrice, 2)}}
+            {{number_format($buyPrice, 2)}}
         </p>
         <small class="my-2  d-inline-block text-muted">
-            {{__('Buying_Price')}} {{number_format($buyPrice, 2,)}}
+            {{__('Selling_Price')}} {{number_format($sellPrice, 2,)}}
                         @if(( $priceDiff != 0 ))
                             <small class="compare-yasterday fs-6 ms-2 {{  ($priceDiff < 0 ) ? 'text-danger' : 'text-success';}}" >
                                     <i class="fa-solid {{ ($priceDiff < 0 ) ? 'fa-chevron-down' : 'fa-chevron-up'; }}"></i>
@@ -52,8 +52,6 @@
                                     ({{  number_format(abs($priceDiff), 2,)  }})
                                     {{ __('Compared To The Last Price Yesterday') }}
                             </small>
-             
-
                         @endif
         </small>
     </div>
