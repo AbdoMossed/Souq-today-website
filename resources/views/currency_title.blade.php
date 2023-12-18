@@ -3,8 +3,8 @@
     $prices = $prices ?? [];
     $buyPrice = $prices[0]->buy_price;
     $sellPrice = $prices[0]->sell_price;
-    $buyPriceYasterday = $prices->last()->buy_price;
-    $priceDiff =$buyPrice - $buyPriceYasterday;
+    $sellPriceYasterday = $prices->last()->sell_price;
+    $priceDiff = $sellPrice - $sellPriceYasterday;
 @endphp
 
 <div class="title-currency ">
