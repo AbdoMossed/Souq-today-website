@@ -12,13 +12,6 @@
     $Sagha_USD = $gold_karat24 / $international_price; 
     $sagha_Diff = abs($Sagha_USD - $bank_USD); 
 
-
-    $appURL = config('app.url');
-    $splittedUrl = parse_url($appURL);
-    $scheme = $splittedUrl['scheme'];
-    $host = $splittedUrl['host'];
-    $port = $splittedUrl['port'];
-
 @endphp
 @section('content')
 

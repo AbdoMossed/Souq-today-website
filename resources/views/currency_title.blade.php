@@ -1,12 +1,12 @@
 @php 
     $name = $name ?? '';
+    $nameArbic= explode(" ", $name);
     $prices = $prices ?? [];
     $buyPrice = $prices[0]->buy_price;
     $sellPrice = $prices[0]->sell_price;
     $sellPriceYasterday = $prices->last()->sell_price;
     $priceDiff = $sellPrice - $sellPriceYasterday;
 @endphp
-
 <div class="title-currency ">
         <div class="d-flex">                                                                                                                                                         
             <p class="fw-bold fs-3 m-0 py-3 text-primary">
@@ -27,13 +27,21 @@
         <small class="text-muted">
 
         @if($type == 'Currency' )
-                @if ($code == 'egp')
-                    {{__('The_Price_Of')}} {{$name}} {{__('Today_In_The_Black_Market_In')}} 
-                    {{$countries->where('code',$code)->first()->country->name}}
+                    {{__('The_Price_Of')}}
+                    @if(config('app.locale') === 'ar')
+                        @foreach($nameArbic as $value)
+                            {{ 'ال'. $value}}
+                        @endforeach
                     @else
-                    {{__('The_Price_Of')}} {{$name}} {{__('Today_In')}}
-                    {{$countries->where('code',$code)->first()->country->name}}
+                         {{$name}}
+                    @endif
+                @if ($code == 'egp')
+                     {{__('Today_In_The_Black_Market_In')}} 
+                    @else
+                     {{__('Today_In')}}
                 @endif
+                {{$countries->where('code',$code)->first()->country->name}}
+
         @else
                 {{__('The_Price_Of')}} {{$name}} {{__('Today_In')}}
                 {{$countries->where('code',$code)->first()->country->name}}
@@ -44,7 +52,17 @@
             {{number_format($buyPrice, 2)}}
         </p>
         <small class="my-2  d-inline-block text-muted">
-            {{__('Selling_Price')}} {{number_format($sellPrice, 2,)}}
+        @if($code != 'egp')
+
+            {{__('USD')}} 
+
+        @else
+
+            {{__('Selling_Price')}}
+
+        @endif
+            
+            {{number_format($sellPrice, 2,)}}
                         @if(( $priceDiff != 0 ))
                             <small class="compare-yasterday fs-6 ms-2 {{  ($priceDiff < 0 ) ? 'text-danger' : 'text-success';}}" >
                                     <i class="fa-solid {{ ($priceDiff < 0 ) ? 'fa-chevron-down' : 'fa-chevron-up'; }}"></i>

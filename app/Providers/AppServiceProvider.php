@@ -66,6 +66,6 @@ class AppServiceProvider extends ServiceProvider
         view()->share('currencies', $currenciesWithPrice );
         view()->share('gold', $gold );
         view()->share('countries', $countries );
-        view()->share('code', $code  );
+        view()->share('code', $code );
     }
 }

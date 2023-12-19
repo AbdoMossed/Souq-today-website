@@ -1,6 +1,20 @@
 
 @php
-$titleCurrency = ($type  == "Currency") ?$currencies->where('id',$id)->first()->name : $gold->where('id',$id)->first()->name; 
+if($type  == "Currency"){
+        $nameArbic = explode(" ", $currencies->where('id',$id)->first()->name ,2 );
+            if(config('app.locale') === 'ar'){
+                
+                    $one  =   'ال'. $nameArbic[0];
+                    $two  =   'ال'. $nameArbic[1];
+                    $titleCurrency = $one . " ".$two;
+              
+            }else{
+                $titleCurrency =  $currencies->where('id',$id)->first()->name ;
+            }
+    }else{
+        $titleCurrency =  $gold->where('id',$id)->first()->name; 
+}
+
 @endphp
 @extends('main',['title_Page'=>  $titleCurrency .' | '. __('Souq_Today')  ])
 

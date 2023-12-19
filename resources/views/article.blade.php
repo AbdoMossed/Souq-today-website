@@ -44,6 +44,7 @@
                                 $("div button.click").attr('disabled','disabled');
 
                                 $("div button.click").html('<div class=" spinner-border text-light" role="status"><span class="visually-hidden">Loading...</span></div>');
+                                console.log(dataString);
                   
                                 // alert(dataString); return false; 
                                 $.ajax({
@@ -52,11 +53,11 @@
                                 url: '{{url("/api/articles/".$article->id."/comment/")}}',
                                 data: dataString,
                                 success: function (data) {
-                                    
+                                    console.log(data);
                                     $("div input").val('');
                                     $("div textarea").html('');
 
-                                    var name = data['user_name'];
+                                    var name = data['name'];
                                     var created_at =  'Just Now';
                                     var comment = data['comment'];
                                     $("div div.add-comments").prepend("<div class='p-3 d-flex flex-column mb-1'><div class='d-flex justify-content-between mb-1'><h5 class='text-primary'>"+ name  +"</h5><span class='text-dark'>"+ created_at +"</span></div><p class='text-muted'>"+ comment +"</p></div>")

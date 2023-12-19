@@ -7,7 +7,7 @@
     $splittedUrl = parse_url($appURL);
     $scheme = $splittedUrl['scheme'];
     $host = $splittedUrl['host'];
-    $port = $splittedUrl['port'];
+    $port = isset($splittedUrl['port']) ? $splittedUrl['port'] : '8030';
 
     $parsedUrl = parse_url(request()->url())['host'];
     $splittedHost = explode('.', $parsedUrl);
@@ -37,6 +37,7 @@
                                 if($path != '' ){
                                     $url .= "{$path}";
                                 }
+
                             @endphp
                             <li><a class="dropdown-item" href="{{$url}}">{{$country->country->name}}</a></li>
                         @endforeach 
@@ -93,7 +94,7 @@
             <a href="{{url('currency/'.$popular->id)}}" class="hover-bar text-decoration-none col-auto">
                 <div class="type-currency d-flex flex-column justify-content-center ">
                     <small class="m-0 mb-1 lh-1">{{$popular->name}}</small>
-                    <span class="api-currency-number fs-3  lh-1 text-light ">{{$popular->prices[0]->sell_price}}</span>
+                    <span class="api-currency-number fs-3  lh-1 text-light ">{{$popular->prices[0]->buy_price}}</span>
                 </div>
             </a>
             @endforeach
@@ -103,7 +104,7 @@
             <a href="{{url('gold/'.$popular->id)}}" class="hover-bar text-decoration-none col-auto">
                 <div class="type-currency d-flex flex-column justify-content-center ">
                     <small class=" text-light m-0 mb-1 lh-1">{{$popular->name}}</small>
-                    <span class="api-currency-number fs-3 lh-1 text-light ">{{$popular->prices[0]->sell_price}}</span>
+                    <span class="api-currency-number fs-3 lh-1 text-light ">{{$popular->prices[0]->buy_price}}</span>
                 </div>
             </a>
             @endforeach
