@@ -33,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
 
         $lang = Request::segment(1) ?: config('app.locale');
         $parsedUrl = parse_url(request()->url())['host'];
+
+
         $splittedHost = explode('.', $parsedUrl);
 
         if(str_contains($parsedUrl, 'localhost') && count($splittedHost) > 0){

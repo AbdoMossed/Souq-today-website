@@ -26,7 +26,7 @@
                             {{number_format($currency->prices[0]->sell_price, 2)}}
                             {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}
                         @else
-                            {{ $code == 'egp' ? number_format($currency->prices[0]->sell_price, 2) .  __('PoundEg') : '$'.  number_format($currency->prices[0]->sell_price, 2)  }}
+                            {{ $code == 'egp' ? number_format($currency->prices[0]->sell_price, 2) . " ". __('PoundEg') : '$'.  number_format($currency->prices[0]->sell_price, 2)  }}
                         @endif
                     </a>
             </td>

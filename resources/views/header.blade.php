@@ -12,7 +12,12 @@
     $parsedUrl = parse_url(request()->url())['host'];
     $splittedHost = explode('.', $parsedUrl);
     $code = $splittedHost[0];
+
+    $path = parse_url(request()->url())['path'];
+
+
 @endphp
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
     <div class="container">
         <div class="row col">
@@ -28,6 +33,9 @@
                                 $url = "{$scheme}://{$country->code}.{$host}";
                                 if(isset($port)){
                                     $url .= ":{$port}";
+                                }
+                                if($path != '' ){
+                                    $url .= "{$path}";
                                 }
                             @endphp
                             <li><a class="dropdown-item" href="{{$url}}">{{$country->country->name}}</a></li>
