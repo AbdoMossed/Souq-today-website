@@ -27,7 +27,7 @@
                 <div   class="formComments d-flex flex-column">
                     <input     required class="text mb-4 border border-success p-3 rounded" name="user_name"    type="text"  placeholder="*{{__('Name')}}">
                     <input     required class=" mb-4 border border-success p-3 rounded" name="email"   type="email" placeholder="*{{__('Email')}}">
-                    <textarea   class="text-area mb-4 border border-success p-3 rounded" name="comment"              placeholder="*{{__('Your Comment')}}"  rows="5" ></textarea>
+                    <textarea  required class="text-area mb-4 border border-success p-3 rounded" name="comment"              placeholder="*{{__('Your Comment')}}"  rows="5" ></textarea>
                     <button type="button"   class="click col-3  py-2 bg-primary text-light rounded-pill">{{__('Add Comment')}}</button>
                 </div>
                 <script>
