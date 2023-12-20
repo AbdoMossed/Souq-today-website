@@ -1,7 +1,7 @@
 
 
 
-{{$countries->where('code','egp')}}
+{{$countries}}
 <!-- 
     ->where('can_be_main', 1 ) 
 ->where('code','egp')

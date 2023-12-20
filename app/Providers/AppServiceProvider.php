@@ -37,12 +37,11 @@ class AppServiceProvider extends ServiceProvider
 
         $splittedHost = explode('.', $parsedUrl);
 
-        if(str_contains($parsedUrl, 'localhost') && count($splittedHost) > 0){
+        if(str_contains($parsedUrl, 'localhost') && count($splittedHost) > 1){
             $homeCurrency = $splittedHost[0];
         } else{
             $homeCurrency = count($splittedHost) > 2 ? $splittedHost[0] : 'egp';
         }
-
         $homeCurrencyId = Currency::query()->where('code', $homeCurrency)->value('id');
         $currenciesWithPrice = Currency::with(['prices' => function($q) use($homeCurrencyId){
             $q->where('home_currency_id', $homeCurrencyId);
@@ -59,13 +58,13 @@ class AppServiceProvider extends ServiceProvider
         })->orderBy('sort')->get()->translate($lang);
 
 
-        $parsedUrl = parse_url(request()->url())['host'];
-        $splittedHost = explode('.', $parsedUrl);
-        $code = $splittedHost[0];
+        // $parsedUrl = parse_url(request()->url())['host'];
+        // $splittedHost = explode('.', $parsedUrl);
+        // $code = $splittedHost[0];
 
         view()->share('currencies', $currenciesWithPrice );
         view()->share('gold', $gold );
         view()->share('countries', $countries );
-        view()->share('code', $code );
+        view()->share('code', $homeCurrency );
     }
 }

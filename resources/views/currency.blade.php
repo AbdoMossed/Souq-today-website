@@ -3,10 +3,13 @@
 if($type  == "Currency"){
         $nameArbic = explode(" ", $currencies->where('id',$id)->first()->name ,2 );
             if(config('app.locale') === 'ar'){
-                
-                    $one  =   'ال'. $nameArbic[0];
-                    $two  =   'ال'. $nameArbic[1];
-                    $titleCurrency = $one . " ".$two;
+                    if (count($nameArbic) > 1){
+                        $one  =   'ال'. $nameArbic[0];
+                        $two  =   'ال'. $nameArbic[1];
+                        $titleCurrency = $one . " ".$two;
+                    }else{
+                        $titleCurrency  =   'ال'. $nameArbic[0];
+                    }
               
             }else{
                 $titleCurrency =  $currencies->where('id',$id)->first()->name ;

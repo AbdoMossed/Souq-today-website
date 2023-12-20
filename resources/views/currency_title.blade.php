@@ -43,7 +43,14 @@
                 {{$countries->where('code',$code)->first()->country->name}}
 
         @else
-                {{__('The_Price_Of')}} {{$name}} {{__('Today_In')}}
+                {{__('The_Price_Of')}}
+                @if(config('app.locale') === 'ar')
+                    {{'ال'.$name}} 
+                 @else
+                    {{$name}}
+                @endif
+
+                 {{__('Today_In')}}
                 {{$countries->where('code',$code)->first()->country->name}}
 
         @endif

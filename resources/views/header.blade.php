@@ -9,9 +9,7 @@
     $host = $splittedUrl['host'];
     $port = isset($splittedUrl['port']) ? $splittedUrl['port'] : '8030';
 
-    $parsedUrl = parse_url(request()->url())['host'];
-    $splittedHost = explode('.', $parsedUrl);
-    $code = $splittedHost[0];
+
 
     $path = parse_url(request()->url())['path'];
 

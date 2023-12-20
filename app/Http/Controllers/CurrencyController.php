@@ -19,7 +19,7 @@ class CurrencyController extends Controller
         $syria = Http::withHeaders([ 'content-currency' => 24 ])->get('https://fluxtech.app/syrian-currencies/api/gold');
 
         $syria = json_decode($syria);
-        return     $syria;
+        return   view('welcome');
 
     }
     public function priceCurrency($id) {
