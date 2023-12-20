@@ -73,7 +73,7 @@
 
                                     $("div button.click").removeAttr('disabled');
                                     $("div button.click").html("{{__('Add Comment')}}"); 
-                                    $("div.formComments textarea.click").val('');
+                                    $("div.formComments textarea").val('');
 
                                 }
                                 });
