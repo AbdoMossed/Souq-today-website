@@ -16,7 +16,7 @@ class GoldController extends Controller
         $parsedUrl = parse_url(request()->url())['host'];
         $splittedHost = explode('.', $parsedUrl);
 
-        if(str_contains($parsedUrl, 'localhost') && count($splittedHost) > 0){
+        if(str_contains($parsedUrl, 'localhost') && count($splittedHost) > 1){
             $homeCurrency = $splittedHost[0];
         } else{
             $homeCurrency = count($splittedHost) > 2 ? $splittedHost[0] : 'egp';

@@ -9,9 +9,9 @@
         <p class="text-light px-2 fw-bold fs-5  my-0">
             
             @if($type == 'Currency' )
-                {{__('Currency_Exchange')}}
+                {{__('Currency Exchange')}}
             @else
-                {{__('Grams_Calculator')}}
+                {{__('Grams Calculator')}}
             @endif
         </p>
         <div class="d-flex align-items-center">
@@ -25,7 +25,7 @@
         <input class="inputNumber bg-primary text-light border border-success p-2 rounded"  min="1" value="1" type="number">
     </div>
     <div class="d-flex flex-column my-4 container">
-        <label for="" class="text-light py-2 fs-6"> {{__('Choose_Type')}} </label>
+        <label for="" class="text-light py-2 fs-6"> {{__('Choose Type')}} </label>
         <select name="" id="" class="currencey-item bg-primary text-light border border-success p-2 rounded cursor-pointer">
            
         @foreach ($items as $item)

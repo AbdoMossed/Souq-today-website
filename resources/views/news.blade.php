@@ -1,4 +1,4 @@
-@extends('main',['title_Page'=>  __('News').' | '. __('Souq_Today')  ])
+@extends('main',['title_Page'=>  __('News').' | '. __('Souq Today')  ])
 
 
 

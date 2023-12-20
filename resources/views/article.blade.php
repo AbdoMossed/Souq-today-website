@@ -27,8 +27,8 @@
                 <div   class="formComments d-flex flex-column">
                     <input     required class="text mb-4 border border-success p-3 rounded" name="user_name"    type="text"  placeholder="*{{__('Name')}}">
                     <input     required class=" mb-4 border border-success p-3 rounded" name="email"   type="email" placeholder="*{{__('Email')}}">
-                    <textarea  required class="text-area mb-4 border border-success p-3 rounded" name="comment"              placeholder="*{{__('Your Comment')}}"  rows="5" ></textarea>
-                    <button type="button"   class="click w-25 py-3 bg-primary text-light rounded-pill">{{__('Add_Comment')}}</button>
+                    <textarea   class="text-area mb-4 border border-success p-3 rounded" name="comment"              placeholder="*{{__('Your Comment')}}"  rows="5" ></textarea>
+                    <button type="button"   class="click col-3  py-2 bg-primary text-light rounded-pill">{{__('Add Comment')}}</button>
                 </div>
                 <script>
                     window.addEventListener("load", function (){
@@ -54,26 +54,30 @@
                                 data: dataString,
                                 success: function (data) {
                                     console.log(data);
-                                    $("div input").val('');
-                                    $("div textarea").html('');
 
                                     var name = data['name'];
                                     var created_at =  'Just Now';
                                     var comment = data['comment'];
                                     $("div div.add-comments").prepend("<div class='p-3 d-flex flex-column mb-1'><div class='d-flex justify-content-between mb-1'><h5 class='text-primary'>"+ name  +"</h5><span class='text-dark'>"+ created_at +"</span></div><p class='text-muted'>"+ comment +"</p></div>")
 
-                                    $("div button.click").html("{{__('Add_Comment')}}"); 
+                                    $("div button.click").html("{{__('Add Comment')}}"); 
 
                                     $("div button.click").removeAttr('disabled');
-                     
+
+    
+                                    $("div input").val('');
+                                    $("div textarea").val('');
                                 },
                                 error: function (request, status, error) {
                                     alert(request.responseText);
 
                                     $("div button.click").removeAttr('disabled');
-                                    $("div button.click").html("{{__('Add_Comment')}}"); 
+                                    $("div button.click").html("{{__('Add Comment')}}"); 
+                                    $("div.formComments textarea.click").val('');
+
                                 }
                                 });
+                                
                             });
  
                         });

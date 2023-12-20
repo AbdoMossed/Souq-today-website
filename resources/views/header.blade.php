@@ -7,7 +7,7 @@
     $splittedUrl = parse_url($appURL);
     $scheme = $splittedUrl['scheme'];
     $host = $splittedUrl['host'];
-    $port = isset($splittedUrl['port']) ? $splittedUrl['port'] : '8030';
+    $port = isset($splittedUrl['port']) ? $splittedUrl['port'] : null;
 
 
 
@@ -18,8 +18,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
     <div class="container">
-        <div class="row col">
-            <div class="logo-page  col-md-3 col-sm-10  d-flex align-items-center px-0">
+        <div class="row col w-100">
+            <div class="logo-page  col-lg-3  d-flex align-items-center px-0">
                 <a class=" navbar-brand " href="{{url('/')}}"><img src="{{url('/images/wide-logo-en.png')}}" width="200" class="fs-6" alt=""></a>
                 <div class="dropdown bgSimilar  mx-1  text-white rounded d-inline-block">
                     <button class="bgSimilar btn dropdown-toggle text-white p-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,10 +44,11 @@
 
                     </ul>
                 </div>
+                <button class="navbar-toggler me-0 p-1 m-auto " type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </div>
-            <button class="navbar-toggler m-0 p-1 col-sm-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
             <div class="collapse navbar-collapse col-md-9 m-auto " id="navbarText">
                 <ul class="navbar-nav m-auto me-5 mb-2 mb-lg-0 ">
                     <li class="nav-item">

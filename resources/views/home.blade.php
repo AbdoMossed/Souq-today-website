@@ -1,4 +1,4 @@
-@extends('main',['title_Page'=>__('Souq_Today')])
+@extends('main',['title_Page'=>__('Souq Today')])
 @php
     $currency=$currencies->where('code','usd')->first();
     $prices = $currency->prices;
@@ -37,28 +37,28 @@
                         <div class="left-uses d-flex justify-content-between   align-items-center">
                             <div class="row gx-0 text-muted">
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-primary border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2 d-inline-block">{{__('Market_USD')}}</small> <span class="black-market-api pe-2 text-primary fw-bold">{{ number_format($market_USD, 2,)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
+                                    <small class="colo-eee pe-2 d-inline-block">{{__('Market USD')}}</small> <span class="black-market-api pe-2 text-primary fw-bold">{{ number_format($market_USD, 2,)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-primary border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2">{{__('Bank_USD')}}</small> <span class="bank-api pe-2 text-primary fw-bold">{{ number_format($bank_USD, 2,)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
+                                    <small class="colo-eee pe-2">{{__('Bank USD')}}</small> <span class="bank-api pe-2 text-primary fw-bold">{{ number_format($bank_USD, 2,)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-warning  border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2">{{__('Sagha_USD')}}</small> <span class="sagha-api pe-2 text-warning fw-bold">{{number_format($Sagha_USD,2)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
+                                    <small class="colo-eee pe-2">{{__('Sagha USD')}}</small> <span class="sagha-api pe-2 text-warning fw-bold">{{number_format($Sagha_USD,2)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-warning  border-5 d-inline-block "> 
-                                    <small class="colo-eee pe-2">{{__('Gold_21_Karat')}}</small> <span class="gold21-api pe-2 text-warning fw-bold fw-bold">{{number_format($gold_karat,0)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
+                                    <small class="colo-eee pe-2">{{__('Gold 21 Karat')}}</small> <span class="gold21-api pe-2 text-warning fw-bold fw-bold">{{number_format($gold_karat,0)}}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-info  border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2">{{__('Market_Difference')}}</small> <span class="Market-difference-api pe-2 fw-bold text-info">{{  number_format( $market_USD - $bank_USD ,2) }}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
+                                    <small class="colo-eee pe-2">{{__('Market Difference')}}</small> <span class="Market-difference-api pe-2 fw-bold text-info">{{  number_format( $market_USD - $bank_USD ,2) }}</span> <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
 
 
                                 <div class="border-end  col-sm-6 mb-3 p-1  border-info  border-5 d-inline-block  ">
-                                    <small class="colo-eee pe-2">{{__('Sagha_Difference')}}</small> <span class="sagha-difference-api pe-2 fw-bold text-info">{{number_format($sagha_Diff,2)}}</span>  <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
+                                    <small class="colo-eee pe-2">{{__('Sagha Difference')}}</small> <span class="sagha-difference-api pe-2 fw-bold text-info">{{number_format($sagha_Diff,2)}}</span>  <small class="m-0 fs-6"> {{ $code == 'egp' ? __('PoundEg') : __('PoundSy')  }}</small>
                                 </div>
                                 
                             </div>

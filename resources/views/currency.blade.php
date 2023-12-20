@@ -3,23 +3,22 @@
 if($type  == "Currency"){
         $nameArbic = explode(" ", $currencies->where('id',$id)->first()->name ,2 );
             if(config('app.locale') === 'ar'){
-                    if (count($nameArbic) > 1){
-                        $one  =   'ال'. $nameArbic[0];
-                        $two  =   'ال'. $nameArbic[1];
-                        $titleCurrency = $one . " ".$two;
-                    }else{
-                        $titleCurrency  =   'ال'. $nameArbic[0];
-                    }
+                $currencyTitle = null;
+                foreach($nameArbic as $value){
+                    $currencyTitle .=  'ال' . $value.' ';
+                }
+
+                $currencyTitle = rtrim($currencyTitle);
               
-            }else{
-                $titleCurrency =  $currencies->where('id',$id)->first()->name ;
+            }else{  
+                $currencyTitle =  $currencies->where('id',$id)->first()->name ;
             }
     }else{
-        $titleCurrency =  $gold->where('id',$id)->first()->name; 
+        $currencyTitle =  $gold->where('id',$id)->first()->name; 
 }
 
 @endphp
-@extends('main',['title_Page'=>  $titleCurrency .' | '. __('Souq_Today')  ])
+@extends('main',['title_Page'=>  $currencyTitle .' | '. __('Souq Today')  ])
 
 @section('content')
 @php

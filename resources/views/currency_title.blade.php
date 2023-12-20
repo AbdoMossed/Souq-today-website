@@ -1,11 +1,27 @@
 @php 
     $name = $name ?? '';
-    $nameArbic= explode(" ", $name);
+    $nameArray = explode(" ", $name);
+    if($type == 'Currency' ){
+        if(config('app.locale') === 'ar'){
+            $currencyTitle = null;
+            foreach($nameArray as $value){
+                $currencyTitle .=  'ال' . $value.' ';
+            }
+
+            $currencyTitle = rtrim($currencyTitle);
+            
+        }else{  
+            $currencyTitle =  $name;
+        }
+    }
     $prices = $prices ?? [];
     $buyPrice = $prices[0]->buy_price;
     $sellPrice = $prices[0]->sell_price;
     $sellPriceYasterday = $prices->last()->sell_price;
     $priceDiff = $sellPrice - $sellPriceYasterday;
+
+
+
 @endphp
 <div class="title-currency ">
         <div class="d-flex">                                                                                                                                                         
@@ -26,34 +42,18 @@
         </div>                               
         <small class="text-muted">
 
-        @if($type == 'Currency' )
-                    {{__('The_Price_Of')}}
-                    @if(config('app.locale') === 'ar')
-                        @foreach($nameArbic as $value)
-                            {{ 'ال'. $value}}
-                        @endforeach
-                    @else
-                         {{$name}}
-                    @endif
-                @if ($code == 'egp')
-                     {{__('Today_In_The_Black_Market_In')}} 
-                    @else
-                     {{__('Today_In')}}
-                @endif
-                {{$countries->where('code',$code)->first()->country->name}}
+        @php
+            $title = 'The Price Of :currency Today';
+            if ($code == 'egp' && $type == 'Currency'){
+                $title .= ' In The Black Market';
+            }
+            $title .= ' In :country';
+        @endphp
 
-        @else
-                {{__('The_Price_Of')}}
-                @if(config('app.locale') === 'ar')
-                    {{'ال'.$name}} 
-                 @else
-                    {{$name}}
-                @endif
-
-                 {{__('Today_In')}}
-                {{$countries->where('code',$code)->first()->country->name}}
-
-        @endif
+        {{__($title, [
+            'currency' => $currencyTitle,
+            'country' => $countries->where('code',$code)->first()->country->name
+        ])}}
         </small>                        
         <p class="font-sizeCss Price-api-selc-cur sell m-0 fw-bold ">
             {{number_format($buyPrice, 2)}}
@@ -65,7 +65,7 @@
 
         @else
 
-            {{__('Selling_Price')}}
+            {{__('Selling Price')}}
 
         @endif
             

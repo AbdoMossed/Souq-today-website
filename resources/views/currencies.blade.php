@@ -1,4 +1,4 @@
-@extends('main',['title_Page'=>  __('Currencies').' | '. __('Souq_Today')  ])
+@extends('main',['title_Page'=>  __('Currencies').' | '. __('Souq Today')  ])
 
 @section('content') 
 
