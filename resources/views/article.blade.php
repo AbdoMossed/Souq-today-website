@@ -25,9 +25,9 @@
                 <p class="text-muted">{{__('Your E-mail wont be shared')}}</p>
 
                 <div   class="formComments d-flex flex-column">
-                    <input     required class="text mb-4 border border-success p-3 rounded" name="user_name"    type="text"  placeholder="*{{__('Name')}}">
-                    <input     required class=" mb-4 border border-success p-3 rounded" name="email"   type="email" placeholder="*{{__('Email')}}">
-                    <textarea  required class="text-area mb-4 border border-success p-3 rounded" name="comment"              placeholder="*{{__('Your Comment')}}"  rows="5" ></textarea>
+                    <input     required class="text mb-4 border border-success p-3 rounded" name="user_name"    type="text" placeholder="*{{__('Name')}}">
+                    <input     required class="text mb-4 border border-success p-3 rounded" name="email"   placeholder="*{{__('Email')}}">
+                    <textarea  required class="text-area mb-4 border border-success p-3 rounded" name="comment"             placeholder="*{{__('Your Comment')}}"  rows="5" ></textarea>
                     <button type="button"   class="click col-3  py-2 bg-primary text-light rounded-pill">{{__('Add Comment')}}</button>
                 </div>
                 <script>
@@ -56,7 +56,7 @@
                                     console.log(data);
 
                                     var name = data['name'];
-                                    var created_at =  'Just Now';
+                                    var created_at =  "{{__('Just Now')}}";
                                     var comment = data['comment'];
                                     $("div div.add-comments").prepend("<div class='p-3 d-flex flex-column mb-1'><div class='d-flex justify-content-between mb-1'><h5 class='text-primary'>"+ name  +"</h5><span class='text-dark'>"+ created_at +"</span></div><p class='text-muted'>"+ comment +"</p></div>")
 

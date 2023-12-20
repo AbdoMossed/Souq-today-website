@@ -39,8 +39,8 @@ $filteredItem = $calcItems->where('id',$id)->first();
                         'prices' => $filteredItem->prices,
                     ])  
                 </div>
-                <div class="part-two">
-                    <canvas id="myChart" width="300" height="160"></canvas>
+                <div class="part-two col-xl-10 col-md-12 ">
+                    <canvas id="myChart" class="w-100" ></canvas>
                     <script>
                         window.addEventListener("load", function (){
                             $(function () {
@@ -80,10 +80,11 @@ $filteredItem = $calcItems->where('id',$id)->first();
                                             options: {
                                                 scales: {
                                                     x: {
-                                                        type: 'time',
+                                                        type: 'timeseries',
                                                         time: {
                                                             displayFormats: {
-                                                                day: 'MM-dd'
+                                                                hour: 'MM-dd',
+                                                                day: 'MM-dd',
                                                             },
                                                         },
                                                         stacked: true,

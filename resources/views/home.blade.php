@@ -7,7 +7,7 @@
     $market_USD = $prices[0]->buy_price;
     $gold_karat = $gold->where('karat',21)->first()->prices[0]->buy_price;
     
-    $gold_karat24 = $gold->where('karat',24)->first()->prices[0]->sell_price;
+    $gold_karat24 = $gold->where('karat',24)->first()->prices[0]->buy_price;
     $international_price = $gold->where('karat',24)->first()->prices[0]->international_price; 
     $Sagha_USD = $gold_karat24 / $international_price; 
     $sagha_Diff = abs($Sagha_USD - $bank_USD); 

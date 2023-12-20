@@ -62,5 +62,7 @@ class AppServiceProvider extends ServiceProvider
         view()->share('gold', $gold );
         view()->share('countries', $countries );
         view()->share('code', $homeCurrency );
+        view()->share('homeCurrencyId', $homeCurrencyId );
+
     }
 }

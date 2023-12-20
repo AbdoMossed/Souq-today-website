@@ -61,7 +61,12 @@
         <small class="my-2  d-inline-block text-muted">
         @if($code != 'egp')
 
-            {{__('USD')}} 
+             @if($type == 'Gold' )
+                {{__('USD')}} 
+             @else
+            {{__('Selling Price')}}
+
+            @endif
 
         @else
 

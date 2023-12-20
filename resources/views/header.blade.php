@@ -21,7 +21,7 @@
         <div class="row col w-100">
             <div class="logo-page  col-lg-3  d-flex align-items-center px-0">
                 <a class=" navbar-brand " href="{{url('/')}}"><img src="{{url('/images/wide-logo-en.png')}}" width="200" class="fs-6" alt=""></a>
-                <div class="dropdown bgSimilar  mx-1  text-white rounded d-inline-block">
+                <div class="dropdown bgSimilar mx-1  text-white rounded   d-none d-lg-block d-xl-block">
                     <button class="bgSimilar btn dropdown-toggle text-white p-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ $countries->where('code',$code)->first()->country->name}}
                     </button>
@@ -61,20 +61,40 @@
                         <a href="{{url('news')}}" class="text-decoration-none text-light fs-6 nav-link">{{__('News')}}</a>
                     </li>
 
-                    @php
-                    $navs = $currencies->where('nav','1');
-                    @endphp
-                    @foreach ($navs as $currencyNav)
-                        <li class="nav-item">
-                            <a href="{{url('currency/'.$currencyNav->id)}}" class="text-decoration-none text-light fs-6 nav-link">{{$currencyNav->name}}</a>
-                        </li>
-                    @endforeach
+                        @php
+                        $navs = $currencies->where('nav','1');
+                        @endphp
+                        @foreach ($navs as $currencyNav)
+                            <li class="nav-item">
+                                <a href="{{url('currency/'.$currencyNav->id)}}" class="text-decoration-none text-light fs-6 nav-link">{{$currencyNav->name}}</a>
+                            </li>
+                        @endforeach
                     <li class="nav-item">
                         <a href="{{$oppositeURL}}" class="navbar-text text-light text-decoration-none nav-link">
                             {{$oppositeLangName}}
                         </a>
                     </li>
+                    <li class="nav-item dropdown d-lg-none d-xl-none d-md-block ">
+                        <a class="nav-link text-light dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             {{ $countries->where('code',$code)->first()->country->name}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                @foreach ($countries as $country)
+                                    @php
+                                        $url = "{$scheme}://{$country->code}.{$host}";
+                                        if(isset($port)){
+                                            $url .= ":{$port}";
+                                        }
+                                        if($path != '' ){
+                                            $url .= "{$path}";
+                                        }
 
+                                    @endphp
+                                    <li><a class="dropdown-item" href="{{$url}}">{{$country->country->name}}</a></li>
+                                @endforeach 
+                        </ul>
+                    </li>
+                
                 </ul>
             </div>  
         </div>
