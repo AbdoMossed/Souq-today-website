@@ -49,8 +49,8 @@
                 </button>
             </div>
 
-            <div class="collapse navbar-collapse col-md-9 m-auto " id="navbarText">
-                <ul class="navbar-nav m-auto me-5 mb-2 mb-lg-0 ">
+            <div class="collapse navbar-collapse col-lg-9 m-auto " id="navbarText">
+                <ul class="navbar-nav m-auto me-lg-5 mb-2 mb-lg-0 ">
                     <li class="nav-item">
                         <a href="{{url('currencies')}}" class="text-decoration-none text-light fs-6 nav-link">{{__('Currencies')}}</a>
                     </li>
@@ -78,7 +78,7 @@
                         <a class="nav-link text-light dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                              {{ $countries->where('code',$code)->first()->country->name}}
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <ul class="dropdown-menu  w-100 bgSimilar py-0 px-3" aria-labelledby="navbarScrollingDropdown">
                                 @foreach ($countries as $country)
                                     @php
                                         $url = "{$scheme}://{$country->code}.{$host}";
@@ -90,7 +90,7 @@
                                         }
 
                                     @endphp
-                                    <li><a class="dropdown-item" href="{{$url}}">{{$country->country->name}}</a></li>
+                                    <li class="nav-item"><a class=" navbar-text text-light text-decoration-none nav-link" href="{{$url}}">{{$country->country->name}}</a></li>
                                 @endforeach 
                         </ul>
                     </li>

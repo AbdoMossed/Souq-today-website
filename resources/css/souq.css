@@ -21,7 +21,7 @@ body{
 }
 
 .currencies-bar,.bgSimilar{
-    background-color: #273c53;
+    background-color: #273c53 !important;
 }
 p.font-sizeCss{
     font-size: 90px ;
