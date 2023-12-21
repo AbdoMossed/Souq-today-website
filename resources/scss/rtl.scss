@@ -7,4 +7,10 @@ $primary: #18293c;
   --bs-primary-rgb: 24, 41, 60;
 }
 
+.btn-primary{
+  --bs-btn-bg: #{$primary};
+  --bs-btn-border-color: #{$primary};
+  --bs-btn-hover-bg: #3a4552;
+  --bs-btn-hover-border-color: #3a4552;
+}
 // 108,117,125

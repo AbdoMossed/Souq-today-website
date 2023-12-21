@@ -1,8 +1,8 @@
 
-<hr>
 @php
 $footers = $currencies->where('footer','1');
 @endphp
+<hr class="mt-0">
 <div class="container">
     <div class="row py-5">
         <p class="  col-lg-6 text-muted"> <span>{{__('Souq Today')}}:</span> {{__('We provides black market currency rates and gold prices in Egypt. We are your trusted source for financial information, collecting and analyzing currency and gold data from reliable sources. Our user-friendly interface enables you to track changes and make informed decisions about your investments. We always strive to provide accurate information and reliable analysis. Remember that prices in the black market can change rapidly')}} </p>
