@@ -22,7 +22,7 @@
             <div class="logo-page  col-lg-3  d-flex align-items-center px-0">
                 <a class=" navbar-brand " href="{{url('/')}}"><img src="{{url('/images/wide-logo-en.png')}}" width="200" class="fs-6" alt=""></a>
                 <div class="dropdown bgSimilar mx-1  text-white rounded   d-none d-lg-block d-xl-block">
-                    <button class="bgSimilar btn dropdown-toggle text-white p-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="bg-success btn dropdown-toggle text-white p-1" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     {{ $countries->where('code',$code)->first()->country->name}}
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
