@@ -43,7 +43,7 @@ Route::group(
 
                 return view('gold',compact('type'));
             });
-            
+
             Route::get('gold/{id}', function ($id) {
                 $type = 'Gold';
                 return view('currency',compact('id','type'));
@@ -56,7 +56,7 @@ Route::group(
 
             Route::get('currencies', function () {
                 $type = 'Currency';
- 
+
                 return view('currencies',compact('type'));
             });
 
@@ -68,7 +68,7 @@ Route::group(
 
             Route::match(['post', 'get'],'article/{id}', function ($id ,Request $request) {
                 $articles = Article::get();
-                $nextArticles = Article::inRandomOrder()->where('id','!=',$id)->limit(4)->get();  
+                $nextArticles = Article::inRandomOrder()->where('id','!=',$id)->limit(4)->get();
                 $article = $articles->where('id',$id)->first();
                 $clientIpAddress = $request->getClientIp();
                 $articleComments = ArticleComment::orderBy('created_at','DESC')->get();
@@ -81,7 +81,7 @@ Route::group(
                         'ip_address' => $clientIpAddress
                     ]
                 );
-                $count = ArticleRead::where('article_id',$id)->count();   
+                $count = ArticleRead::where('article_id',$id)->count();
                 return view('article',compact('article','nextArticles','count','articleComments'));
             });
         });

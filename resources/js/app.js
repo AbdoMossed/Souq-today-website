@@ -1,5 +1,5 @@
 require('bootstrap');
-import jQuery from 'jquery';
+import jQuery from 'jqu ery';
 window.$ = jQuery;
 
 import { Chart } from 'chart.js/auto';
