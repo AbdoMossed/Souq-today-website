@@ -50,7 +50,7 @@ class AppServiceProvider extends ServiceProvider
         })->where('code','!=','egp')->orderBy('sort')->get()->translate($lang);
 
         $countries = Currency::with('country')->whereHas('country')->where('can_be_main',1)->orderBy('sort')->get()->translate($lang);
-        
+        // get gold with price for the home currency
         $gold = Gold::with(['prices' => function($q) use($homeCurrencyId){
             $q->where('home_currency_id', $homeCurrencyId);
         }])->whereHas('prices', function($q) use($homeCurrencyId) {
